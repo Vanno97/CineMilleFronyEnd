@@ -1,0 +1,16 @@
+<div class="row login-container">
+  <form class="login p-5">
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control" id="username" placeholder="Username"  [(ngModel)]="loginRequest.username" name="username">
+      <label for="username">Username</label>
+    </div>
+
+    <div class="form-floating mb-3">
+      <input type="password" class="form-control" id="password" placeholder="Password" [(ngModel)]="loginRequest.password" name="password">
+      <label for="password">Password</label>
+    </div>
+
+    <button type="submit" class="btn btn-success w-100" (click)="login()">LOGIN</button>
+  </form>
+</div>
+<app-alert *ngIf="showAlert" [message]="alertMessage" [error]="true"/>

@@ -1,0 +1,26 @@
+<div class="col-12 film mb-5 mt-5 p-4 film">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h2>{{film.nomeFilm}}</h2>
+      </div>
+    </div>
+    <div class="row">
+      <button class="btn btn-primary" *ngIf="!opened" (click)="open()">Mostra programmazioni</button>
+      <button class="btn btn-primary" *ngIf="opened" (click)="open()">Chiudi programmazioni</button>
+    </div>
+    <div *ngIf="opened">
+      <div class="row mt-3" *ngFor="let prog of film.programmazioni">
+        <div class="col-4">
+          {{prog.dataOra | dateformatter}}
+        </div>
+        <div class="col-4">
+          {{prog.sala.nomeSala}}
+        </div>
+        <div class="col-4">
+          Imax: {{prog.sala.imax?'SI':'NO'}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

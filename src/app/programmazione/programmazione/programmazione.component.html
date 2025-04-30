@@ -1,0 +1,43 @@
+<div class="container top-bar">
+  <div class="row mt-3">
+    <div class="col-3">
+      <button class="btn btn-primary" (click)="loadHistory()">VEDI STORICO FILM</button>
+    </div>
+    <div class="col-9"></div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-2">
+      <div class="input-group">
+        <span class="input-group-text" id="film Name">Nome Film</span>
+        <input class="form-control" type="text" [(ngModel)]="filmName">
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="input-group">
+        <span class="input-group-text" id="from">DA</span>
+        <input class="form-control" type="date" [(ngModel)]="fromDate">
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="input-group">
+        <span class="input-group-text" id="to">A</span>
+        <input class="form-control" type="date" [(ngModel)]="toDate">
+      </div>
+    </div>
+    <div class="col-2">
+      <div class="input-group">
+        <div class="input-group-text">
+          <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Imax" [(ngModel)]="imax">
+        </div>
+        <label class="form-control" aria-label="Imax">IMAX</label>
+      </div>
+    </div>
+    <div class="col-2">
+      <button class="btn btn-success" (click)="search()">CERCA</button>
+    </div>
+  </div>
+  <div class="row" *ngFor="let film of allFilm">
+    <app-film-details [film-details]="film"/>
+  </div>
+</div>
+<app-alert *ngIf="showAlert" [message]="alertMessage" [error]="isErrorAlert"/>
